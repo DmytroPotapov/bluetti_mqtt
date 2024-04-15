@@ -38,7 +38,8 @@ class AC180(BluettiDevice):
         )  # Total power generated since last reset (kwh)
 
         # this is usefule for investigating the available data
-        # registers = {0:21,100:67,700:6,720:49,1100:51,1200:90,1300:31,1400:48,1500:30,2000:67,2200:29,3000:27,6000:31,6100:100,6300:52,7000:5}
+        # registers = {0:21,100:67,700:6,720:49,1100:51,1200:90,1300:31,1400:48,1
+        # 500:30,2000:67,2200:29,3000:27,6000:31,6100:100,6300:52,7000:5}
         # for k in registers:
         #     for v in range(registers[k]):
         #         self.struct.add_uint_field('testI' + str(v+k), v+k)
