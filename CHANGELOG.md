@@ -2,7 +2,7 @@
 
 ## FUTURE
 
-## 0.16.0
+## 0.16.2
 
 * Add support for AC180P
 
