@@ -726,4 +726,3 @@ class MQTTClient:
         if 'cell_voltages' in parsed:
             details['voltages'] = [float(d) for d in parsed['cell_voltages']]
         return details
-        
