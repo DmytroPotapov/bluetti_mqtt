@@ -2,6 +2,12 @@
 
 ## FUTURE
 
+## 0.16.0
+
+* Add support for AC180P
+
+
+
 ## 0.15.0
 
 * Add additional battery pack details for AC200M, AC300, EP500(P), and AC500
