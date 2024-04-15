@@ -40,7 +40,6 @@ class AC180(BluettiDevice):
         self.struct.add_uint_field(
             "ac_input_power", 146
         )
-        
         # History
         # self.struct.add_decimal_field('power_generation', 154, 1)  # Total power generated since last reset (kwh)
         self.struct.add_decimal_field(
@@ -70,7 +69,7 @@ class AC180(BluettiDevice):
         self.struct.add_bool_field('dc_output_on', 49)
         
         super().__init__(address, "AC180P", sn)
-
+        
     @property
     def polling_commands(self) -> List[ReadHoldingRegisters]:
         return [
