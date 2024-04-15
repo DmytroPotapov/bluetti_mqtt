@@ -43,7 +43,11 @@ class AC180(BluettiDevice):
         # for k in registers:
         #     for v in range(registers[k]):
         #         self.struct.add_uint_field('testI' + str(v+k), v+k)
-
+         # Controls
+        self.struct.add_bool_field('ac_output_on', 3007)
+        self.struct.add_bool_field('dc_output_on', 3008)
+        self.struct.add_bool_field('power_off', 3060)
+        self.struct.add_bool_field('eco_on', 3063)
         super().__init__(address, "AC180P", sn)
 
     @property
