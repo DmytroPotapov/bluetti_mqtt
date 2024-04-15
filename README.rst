@@ -8,7 +8,6 @@ can be sent to the ``bluetti/command/[DEVICE NAME]/[PROPERTY]`` topic.
 
 Installation
 ------------
-
 .. code-block:: bash
 
     $ pip install bluetti_mqtt
