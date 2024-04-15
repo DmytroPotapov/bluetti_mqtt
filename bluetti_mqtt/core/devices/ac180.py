@@ -1,7 +1,16 @@
+from enum import Enum, unique
 from typing import List
 from ..commands import ReadHoldingRegisters
 from .bluetti_device import BluettiDevice
 from .struct import DeviceStruct
+
+@unique
+class OutputMode(Enum):
+    STOP = 0
+    INVERTER_OUTPUT = 1
+    BYPASS_OUTPUT_C = 2
+    BYPASS_OUTPUT_D = 3
+    LOAD_MATCHING = 4
 
 
 class AC180(BluettiDevice):
@@ -30,6 +39,7 @@ class AC180(BluettiDevice):
         self.struct.add_uint_field(
             "ac_input_power", 146
         )  # this is a guess because I didn't have a PV module handy to test
+        
 
         # History
         # self.struct.add_decimal_field('power_generation', 154, 1)  # Total power generated since last reset (kwh)
@@ -43,11 +53,22 @@ class AC180(BluettiDevice):
         # for k in registers:
         #     for v in range(registers[k]):
         #         self.struct.add_uint_field('testI' + str(v+k), v+k)
-        # Controls
+        # Controls TEST 
         self.struct.add_bool_field('ac_output_on', 3007)
         self.struct.add_bool_field('dc_output_on', 3008)
         self.struct.add_bool_field('power_off', 3060)
         self.struct.add_bool_field('eco_on', 3063)
+        self.struct.add_enum_field('ac_output_mode', 70, OutputMode)
+        self.struct.add_uint_field('internal_ac_voltage', 71)
+        self.struct.add_decimal_field('internal_current_one', 72, 1)
+        self.struct.add_uint_field('internal_power_one', 73)
+        self.struct.add_decimal_field('internal_ac_frequency', 74, 1)
+        self.struct.add_uint_field('internal_dc_input_voltage', 86)
+        self.struct.add_decimal_field('internal_dc_input_power', 87, 1)
+        self.struct.add_decimal_field('internal_dc_input_current', 88, 2)
+        self.struct.add_bool_field('ac_output_on', 48)
+        self.struct.add_bool_field('dc_output_on', 49)
+        
         super().__init__(address, "AC180P", sn)
 
     @property
