@@ -4,6 +4,7 @@ from ..commands import ReadHoldingRegisters
 from .bluetti_device import BluettiDevice
 from .struct import DeviceStruct
 
+
 @unique
 class OutputMode(Enum):
     STOP = 0
@@ -38,9 +39,8 @@ class AC180(BluettiDevice):
         self.struct.add_uint_field("dc_input_power", 144)
         self.struct.add_uint_field(
             "ac_input_power", 146
-        )  # this is a guess because I didn't have a PV module handy to test
+        )
         
-
         # History
         # self.struct.add_decimal_field('power_generation', 154, 1)  # Total power generated since last reset (kwh)
         self.struct.add_decimal_field(
@@ -53,7 +53,7 @@ class AC180(BluettiDevice):
         # for k in registers:
         #     for v in range(registers[k]):
         #         self.struct.add_uint_field('testI' + str(v+k), v+k)
-        # Controls TEST 
+        # Controls TEST
         self.struct.add_bool_field('ac_output_on', 3007)
         self.struct.add_bool_field('dc_output_on', 3008)
         self.struct.add_bool_field('power_off', 3060)
