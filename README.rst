@@ -2,6 +2,10 @@
 bluetti_mqtt
 ============
 
+------------
+This is fork of original repository, with added support for Bluetti AC180P
+------------
+
 This tool provides an MQTT interface to Bluetti power stations. State will be
 published to the ``bluetti/state/[DEVICE NAME]/[PROPERTY]`` topic, and commands
 can be sent to the ``bluetti/command/[DEVICE NAME]/[PROPERTY]`` topic.
