@@ -42,8 +42,8 @@ class AC180(BluettiDevice):
         super().__init__(address, 'AC180', sn)
 
     @property
-    def polling_commands(self) -> List[ReadHoldingRegisters]:
-        return super().polling_commands + [
+   def polling_commands(self) -> List[ReadHoldingRegisters]:
+        [
             ReadHoldingRegisters(140, 1),
             ReadHoldingRegisters(142, 1),
             ReadHoldingRegisters(144, 1),
@@ -58,4 +58,4 @@ class AC180(BluettiDevice):
 
     @property
     def writable_ranges(self) -> List[range]:
-        return super().writable_ranges + [range(2000, 2022), range(2200, 2226)]
+        return  [range(2000, 2022), range(2200, 2226)
