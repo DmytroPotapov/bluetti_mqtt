@@ -4,6 +4,7 @@ from .bluetti_device import BluettiDevice
 from .struct import DeviceStruct
 from enum import Enum, unique
 
+
 @unique
 class ChargingMode(Enum):
     STANDARD = 0
