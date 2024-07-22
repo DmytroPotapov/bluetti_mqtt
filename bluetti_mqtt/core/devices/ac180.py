@@ -58,4 +58,4 @@ class AC180(BluettiDevice):
 
     @property
     def writable_ranges(self) -> List[range]:
-        return  [range(2000, 2022), range(2200, 2226)
+        return  [range(2000, 2022), range(2200, 2226)]
